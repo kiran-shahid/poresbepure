@@ -1,0 +1,41 @@
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9e6e6;
+}
+
+h1 {
+    color: #333;
+    font-family: "Arial", sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.upload-area {
+    margin-top: 30px;
+}
+
+.upload-box {
+    /* width: 300px; */
+    height: 200px;
+    border: 2px dashed #999;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.upload-box span {
+    color: #999;
+    font-weight: bold;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

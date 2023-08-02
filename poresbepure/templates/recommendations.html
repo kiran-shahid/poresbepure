@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Product Recommendations</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'recommend.css' %}">
+</head>
+<script>
+    $(document).ready(function() {
+        var productData = {
+            'oily': {
+                'acne': [
+                    {
+                        'productLink': 'https://oleanderorganic.com/collections/skin-care/products/oleander-activated-charcoal-face-wash',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0637/5915/5412/products/13_360x.png?v=1649505681',
+                        'productPrice': 'oleander organic milky delights turmeric honey facewash Rs. 700'
+                    },
+                    {
+                        'productLink': 'https://naturecharms.pk/product/ayurveda-acne-treatment-mask/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/IMG-20220629-WA0018-1-750x750.jpg',
+                        'productPrice': 'ayurveda acne treatment mask Rs. 1445'
+                    },
+                    {
+                        'productLink': 'https://highfy.pk/products/neutrogena-oil-free-acne-wash-269ml',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0576/9579/7455/products/1204184-1.jpg?v=1643347445',
+                        'productPrice': 'neutrogena oil free acne wash 269ml Rs. 3799'
+                    }
+                ],
+                'dryness': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/orange-lemon-with-triphala-cleansing/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/20220629_155912-scaled-1-750x750.jpg',
+                        'productPrice': 'orange-lemon-with-triphala-cleansing Rs 1350'
+                    }
+
+                ],
+                'wrinkles': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/pro-collagen-face-wash-120ml-all-skin-types/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/20220629_160734-scaled-1-750x750.jpg',
+                        'productPrice': 'pro-collagen-face-wash-120ml Rs 1445'
+                    }
+                ],
+                'dark circles': [
+                    {
+                        'productLink': 'https://organatouch.com/collections/face-1/products/under-eye-serum',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0607/6052/2960/products/3_30ab4267-ea22-4091-ae5a-0542a272d2c9_400x.jpg?v=1651955651',
+                        'productPrice': 'under-eye-serum Rs 2150'
+                    }
+                ],
+                'Pigmentation': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/fermented-rice-cream/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2023/05/3-1.png',
+                        'productPrice': 'ufermented-rice-cream Rs 1890'
+                    },
+                    {
+                        'productLink': 'https://organatouch.com/collections/face-1/products/natures-beauty',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0607/6052/2960/products/7_400x.jpg?v=1651955459',
+                        'productPrice': 'Rs 1700'
+                    }                    
+                ]                  
+            },
+            'dry': {
+            //     'acne': [
+            //         {
+            //             'productLink': 'https://example.com/product4',
+            //             'productImage': 'https://example.com/images/product4.jpg',
+            //             'productPrice': '$15'
+            //         }
+            //     ],
+                'dryness': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/orange-lemon-with-triphala-cleansing/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/20220629_155912-scaled-1-750x750.jpg',
+                        'productPrice': 'orange-lemon-with-triphala-cleansing Rs 1350'
+                    }
+                ],
+                'wrinkles': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/pro-collagen-face-wash-120ml-all-skin-types/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/20220629_160734-scaled-1-750x750.jpg',
+                        'productPrice': 'pro-collagen-face-wash-120ml Rs 1445'
+                    }
+                ],
+                'dark circles': [
+                    {
+                        'productLink': 'https://organatouch.com/collections/face-1/products/under-eye-serum',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0607/6052/2960/products/3_30ab4267-ea22-4091-ae5a-0542a272d2c9_400x.jpg?v=1651955651',
+                        'productPrice': 'under-eye-serum Rs 2150'
+                    }
+                ],
+                'Pigmentation': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/fermented-rice-cream/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2023/05/3-1.png',
+                        'productPrice': 'ufermented-rice-cream Rs 1890'
+                    },
+                    {
+                        'productLink': 'https://organatouch.com/collections/face-1/products/natures-beauty',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0607/6052/2960/products/7_400x.jpg?v=1651955459',
+                        'productPrice': 'Rs 1700'
+                    }                    
+                ]                  
+            },
+            'combination': {
+                'acne': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/white-willow-tea-tree-spot-on-treatment/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/20220627_162529-scaled-1-750x750.jpg',
+                        'productPrice': 'white-willow-tea-tree-spot-on-treatment Rs. 1250'
+                    },
+                    {
+                        'productLink': 'https://organatouch.com/collections/face-1/products/face-wash',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0607/6052/2960/products/15_400x.jpg?v=1651955371',
+                        'productPrice': 'facewash Rs. 1299'
+                    }                    
+                ],
+                'dryness': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/orange-lemon-with-triphala-cleansing/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/20220629_155912-scaled-1-750x750.jpg',
+                        'productPrice': 'orange-lemon-with-triphala-cleansing Rs 1350'
+                    }
+                ],
+                'wrinkles': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/pro-collagen-face-wash-120ml-all-skin-types/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2022/09/20220629_160734-scaled-1-750x750.jpg',
+                        'productPrice': 'pro-collagen-face-wash-120ml Rs 1445'
+                    }
+                ],
+                'dark circles': [
+                    {
+                        'productLink': 'https://organatouch.com/collections/face-1/products/under-eye-serum',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0607/6052/2960/products/3_30ab4267-ea22-4091-ae5a-0542a272d2c9_400x.jpg?v=1651955651',
+                        'productPrice': 'under-eye-serum Rs 2150'
+                    }
+                ],
+                'Pigmentation': [
+                    {
+                        'productLink': 'https://naturecharms.pk/product/fermented-rice-cream/',
+                        'productImage': 'https://naturecharms.pk/wp-content/uploads/2023/05/3-1.png',
+                        'productPrice': 'ufermented-rice-cream Rs 1890'
+                    },
+                    {
+                        'productLink': 'https://organatouch.com/collections/face-1/products/natures-beauty',
+                        'productImage': 'https://cdn.shopify.com/s/files/1/0607/6052/2960/products/7_400x.jpg?v=1651955459',
+                        'productPrice': 'Rs 1700'
+                    }                    
+                ]               
+            }
+        };
+
+        // Event handler for the skin type dropdown selection change
+        $('#skin-type').change(function() {
+            var selectedSkinType = $(this).val();
+            var selectedSkinIssue = $('#skin-issue').val();
+            displayProduct(selectedSkinType, selectedSkinIssue);
+        });
+
+        // Event handler for the skin issue dropdown selection change
+        $('#skin-issue').change(function() {
+            var selectedSkinType = $('#skin-type').val();
+            var selectedSkinIssue = $(this).val();
+            displayProduct(selectedSkinType, selectedSkinIssue);
+        });
+
+        // Function to display product recommendation
+        function displayProduct(skinType, skinIssue) {
+            var productContainer = $('#product-container');
+            productContainer.empty();
+            var products = productData[skinType][skinIssue];
+            for (var i = 0; i < products.length; i++) {
+                var product = products[i];
+                var productLink = product.productLink;
+                var productImage = product.productImage;
+                var productPrice = product.productPrice;
+                var productHtml = '<div class="product">' +
+                    '<a href="' + productLink + '">' +
+                    '<img src="' + productImage + '" alt="Product">' +
+                    '<p class="price">Price: ' + productPrice + '</p>' +
+                    '</a>' +
+                    '</div>';
+                productContainer.append(productHtml);
+            }
+        }
+    });
+</script>
+</head>
+<body>
+<div>
+    <h2>Product Recommendations</h2>
+    <label for="skin-type">Select Skin Type:</label>
+    <select id="skin-type">
+        <option value="">Select Skin Type</option>
+        <option value="oily">Oily</option>
+        <option value="dry">Dry</option>
+        <option value="combination">Combination</option>
+    </select>
+    <br>
+    <label for="skin-issue">Select Skin Issue:</label>
+    <select id="skin-issue">
+        <option value="">Select Skin Issue</option>
+        <option value="acne">Acne</option>
+        <option value="dryness">Dryness</option>
+        <option value="wrinkles">Wrinkles</option>
+        <option value="dark circles">Dark Circles</option>
+        <option value="Pigmentation">Pigmentation</option>
+    </select>
+</div>
+<div id="product-container"></div>
+</body>
+</html>
