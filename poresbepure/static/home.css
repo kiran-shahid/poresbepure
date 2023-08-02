@@ -1,0 +1,350 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+  position: relative;
+  z-index: 1;
+}
+
+.banner {
+  position: relative;
+  height: 100vh;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://img.freepik.com/free-photo/macadamia-body-lotion-skin-cream_1150-42808.jpg");
+  background-size: cover;
+  background-position: center;
+  /* filter: blur(4px); Add blur effect */
+  z-index: -1;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.logo img {
+  height: 200px;
+}
+
+nav {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+nav ul li {
+  position: relative;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #333333d1;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  top: 100%;
+  left: 0;
+  width: 200px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Banner Text Styles */
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+.banner-text h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.banner-text .highlight {
+  color: #ad89ac;
+}
+
+.banner-text .subtext {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #555;
+}
+
+/* Feature Section Styles */
+.feature-section {
+  background-color: #fff;
+  padding: 80px 0;
+}
+
+.feature-item {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.feature-item img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.feature-item h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature-item p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Product Section Styles */
+.product-section {
+  background-color: #ffc0cb;
+  padding: 80px 0;
+}
+
+.product-item {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.product-item img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.product-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.product-item p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F2F2F2;
+  }
+
+  
+ 
+header {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 20%;
+    width: 100%;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #000;
+    padding: 20px;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  
+  .first-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55vh;
+  }
+  
+  .first-text {
+    text-align: right;
+    margin-right: 50px;
+    text-align: justify;
+  }
+  
+  .first-image img{
+    margin-left: 50px;
+    width: 400px;
+
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .block {
+    background-color: #fff;
+    border: 1px solid #333;
+    box-shadow: 0px 0px 10px #333;
+    padding: 20px;
+    text-align: center;
+    width: 350px;
+    margin: 30px;
+  }
+  
+  .block h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .block p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  footer {
+    background-color: #f2f2f2;
+    text-align: center;
+    padding: 30px 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-info p {
+    margin: 0;
+  }
+  
+  .footer-social p {
+    margin: 0;
+    margin-right: 10px;
+  }
+  
+  .footer-social i {
+    font-size: 10px;
+    color: #333;
+  }
+  
+  .skin-care-tips {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .skin-care-tips h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .skin-care-tips p {
+    margin-bottom: 1rem;
+  } */

@@ -1,0 +1,48 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEZ30-x3qgR7_xhT0_iMtC0h3IFx49DyW3l9oMFR7PG2Zul-5Nn6FpADjlyGFHe67zoT8&usqp=CAU') ;
+    filter: blur(3px); /* Adjust the blur amount as needed */
+  }
+.heading {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.skin-type {
+    margin-bottom: 40px;
+}
+
+.skin-type-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.skin-type-info {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.skin-type-info p {
+    margin-bottom: 10px;
+}
+
+.skin-type-info ul {
+    margin-left: 20px;
+}
+
+.skin-type-info ul li {
+    margin-bottom: 5px;
+}
