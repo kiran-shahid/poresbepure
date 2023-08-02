@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "pbp/wsgi.py",
+        "src": "poresbepure/wsgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "pbp/wsgi.py"
+            "dest": "poresbepure/wsgi.py"
         }
     ]
 }
